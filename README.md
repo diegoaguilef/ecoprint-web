@@ -5,20 +5,41 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+# Ruby version
+* 3.1.2
 
-* System dependencies
+# System dependencies
+* nodejs
+* yarn o npm
+* git
+* linux: libpq-dev + postgresql
+* windows:
+    - Ruby on rails
+    - pgAdmin + postgresql
 
-* Configuration
+# Configuration
+* Run:
 
-* Database creation
+        gem install bundler
+        budle install
+        yarn o npm install
+# Database creation
+* Run:
 
-* Database initialization
+        rails db:drop db:create
+# Database initialization
+* Run:
 
-* How to run the test suite
+        rails db:migrate db:seed
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+# Deployment instructions
+
+Development environment:
+- Run Rails App:
+
+        rails s
+- Run Webpacker:
+
+        bin/webpack-dev-server
