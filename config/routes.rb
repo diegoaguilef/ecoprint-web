@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'administration/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
   devise_for :users, controllers: {
@@ -7,13 +8,16 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     confirmations: 'users/confirmations'
   }
-  
+
+  resources :users
+
   authenticated :user, lambda {|u| u.role == "admin"} do
     resources :communes
     resources :cities
     resources :products
     resources :sub_categories
     resources :categories
+    get 'administration', to: "home#administration"
   end
 
   authenticated :user, lambda {|u| u.role == "client"} do
@@ -33,4 +37,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+
 end

@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <%= favicon_link_tag '', rel: 'shortcut icon' %>
+    <title>Renius</title>
+    <%= favicon_pack_tag 'media/img/icons/favicon.png', rel: 'shortcut icon' %>
     <meta charset="UTF-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <title>EcoPrint - web</title>
-    <meta name="description" content="Tienda de ropa ecológica">
-    <!-- Facebook Open Graph data -->
-    <meta property="og:title" content="EcoPrint - Web" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="<%= request.original_url %>" />
-    <meta property="og:image" content="" />
-    <meta property="og:description" content="Tienda de ropa ecológica" />
-    <meta property="og:site_name" content="Eco Print" />
-    <!-- Twitter Card data -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js"></script>
+    <!-- Meta tags facebook-->
+    <meta property="og:title" content="#">
+    <meta property="og:description" content="#">
+    <meta property="og:image" content="#">
+    <!-- Meta tags twitter cards-->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="twitter">
-    <meta name="twitter:title" content="EcoPrint Twitter">
-    <meta name="twitter:description" content="Tienda de ropa ecológica">
-    <meta name="twitter:creator" content="IN GR">
-    <meta name="twitter:image:src" content=" ">
-
+    <meta name="twitter:title" content="#">
+    <meta name="twitter:description" content="#">
+    <meta name="twitter:image" content="#">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
@@ -37,7 +32,7 @@
         <div class="header__wrap">
           <div class="header__inner">
             <div class="header__search">
-              <%= search_form_for @q, url: market_products_path do |f| %>
+              <%= search_form_for @q do |f| %>
                 <div class="header__input">
                   <%= f.search_field :name_cont, placeholder: "Buscar Producto"%>
                   <div class="header__button">
@@ -68,7 +63,7 @@
               <div class="header__nav__bg"></div>
               <div class="header__nav__nav">
                 <div class="header__nav__bar">
-                  <div class="header__logo"><a href="index.html"><img src=""></a></div>
+                  <div class="header__logo"><%= link_to image_pack_tag("media/img/ecoprint_logo.jpg"), root_path %></div>
                   <div class="header__nav__close">
                     <div></div>
                     <div></div>
@@ -83,19 +78,15 @@
                   <ul>
                     <li><%= link_to 'Inicio', root_path %></li>
                     <li><%= link_to "Categorias", categories_path %></li>
-                    <li><%= link_to "Contacto", contact_path %></li>
-                    <% if current_user&.admin? %>
-                    <li><%= link_to "Administracion", current_user %></li>
-                    <% end %>
-                    <li><%= link_to current_user.name, current_user %></li>
+                    <li><%= link_to "Contacto", "#" %></li>
                   </ul>
                 </nav>
-                <div class="header__nav__buttons" style="visibility:hidden;"> <a href="/users/sign_in" class="btn btn--sm">Ir a mi cuenta</a><a href="register.html" class="btn btn--sm btn--secondary">Registrate</a></div>
+                <div class="header__nav__buttons"> <a href="/users/sign_in" class="btn btn--sm">Ir a mi cuenta</a><a href="register.html" class="btn btn--sm btn--secondary">Registrate</a></div>
               </div>
             </div>
             <div class="header__right">
-              <div class="header__item header__item--button" style="visibility:hidden;"> <a href="/users/sign_in" class="btn btn--sm">Ir a mi cuenta</a></div>
-              <div class="header__item header__item--button" style="visibility:hidden;"> <a href="/users/sign_up" class="btn btn--sm btn--secondary">Registrate</a></div>
+              <div class="header__item header__item--button"> <a href="/users/sign_in" class="btn btn--sm">Ir a mi cuenta</a></div>
+              <div class="header__item header__item--button"> <a href="/users/sign_up" class="btn btn--sm btn--secondary">Registrate</a></div>
               <div class="header__item header__item--ham">
                 <div class="header__ham"><span></span><span></span><span></span></div>
               </div>
@@ -106,43 +97,13 @@
     </header>
     <div id="sections">
       <%= yield %>
-      <section class="section--newsletter section--light">
-        <div class="section__wrap section__wrap--xs">
-          <div class="section__body">
-            <div class="section__newsletter">
-              <div class="section__bg">
-                <div class="bg"><%= image_tag "" %></div>
-              </div>
-              <div class="section__content">
-                <h4 class="section__title">¿Deseas recibir información de nuevos productos?</h4>
-                <p class="section__description">Registra tu email y te informaremos cuando haya productos que se ajusten a
-                  tus gustos o necesidades
-                </p>
-              </div>
-              <div class="section__form">
-                <form class="form">
-                  <div class="form__element">
-                    <div class="form__title">Email</div>
-                    <div class="form__input">
-                      <input type="email" name="#">
-                    </div>
-                    <div class="form__button">
-                      <button class="btn btn--secondary">Suscribirse</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
     <footer>
       <div class="footer__primary">
         <div class="footer__wrap">
           <div class="cols">
             <div class="col-md-4">
-              <div class="footer__logo"><%= image_tag "" %></div>
+              <div class="footer__logo"><%= image_pack_tag("media/img/icons/logo-renius-dark.png") %></div>
               <p class="footer__description">¿Porque comprar algo costoso si lo puedes arrendar?</p>
               <div class="footer__social">
                 <ul>
@@ -170,7 +131,7 @@
                     <ul>
                       <li><%= link_to 'Inicio', root_path %></li>
                       <li><%= link_to "Categorias", categories_path %></li>
-                      <li><%= link_to "Contacto", contact_path %></li>
+                      <li><%= link_to "Contacto", "#" %></li>
                     </ul>
                   </div>
                 </div>
@@ -183,7 +144,7 @@
       <div class="footer__secondary">
         <div class="footer__wrap footer__wrap--terms">
           <div class="footer__terms">
-            <div class="footer__description">Copyright © 2022 - EcoPrint</div>
+            <div class="footer__description">Copyright © 2022 - Renius</div>
           </div>
         </div>
       </div>

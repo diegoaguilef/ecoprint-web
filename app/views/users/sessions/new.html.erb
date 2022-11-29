@@ -1,26 +1,42 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<section class="section--header">
+  <div class="section__banner">
+    <div class="section__bg">
+      <div class="bg"><%=image_pack_tag "media/img/uploads/8.jpg"%></div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+    <div class="section__grad"></div>
+    <div class="section__wrap section__wrap--header--login">
+      <div class="cols">
+        <div class="col-md-6">
+          <div class="section__content">
+            <div class="section__body">
+              <h1 class="h2 section__title">Ingresa a tu cuenta</h1>
+              <p class="section__description">Vitae tempus a aliquam cras morbi aliquam fames bibendum duis. Mi fusce donec augue donec cras vulputate non cursus ultricies facilisis euismod lacinia fusce senectus.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="section__form">
+            <h4 class="section__title">Ingresa tu datos</h4>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'form') do |f| %>
+              <div class="form__element">
+                <div class="form__input">
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+                </div>
+              </div>
+              <div class="field">
+                <div class="form__element">
+                  <div class="form__input">
+                    <%= f.password_field :password, autocomplete: "current-password", placeholder:"Contraseña" %>
+                  </div>
+                </div>
+                <div class="form__buttons">
+                  <button type="submit" class="btn">Iniciar sesión</button><%= link_to '¿Has olvidado la contraseña?', new_user_password_path, class:'btn btn--white'%>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
