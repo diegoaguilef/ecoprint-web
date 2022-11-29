@@ -21,7 +21,7 @@ Things you may want to cover:
 * Run:
 
         gem install bundler
-        budle install
+        bundle install
         yarn o npm install
 # Database creation
 * Run:
