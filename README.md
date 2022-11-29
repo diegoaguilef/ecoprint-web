@@ -13,6 +13,7 @@ Things you may want to cover:
 * yarn o npm
 * git
 * linux: libpq-dev + postgresql
+* libvips
 * windows:
     - Ruby on rails
     - pgAdmin + postgresql

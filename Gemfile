@@ -77,3 +77,7 @@ gem "webpacker", "~> 5.4"
 gem "ransack", "~> 3.2"
 
 gem "devise", "~> 4.8"
+
+gem "ruby-vips"
+
+gem "aws-sdk-s3", require: false
