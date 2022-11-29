@@ -23,6 +23,8 @@ default: &default
   host: localhost
   username: postgres
   password: postgres
+  host: aguilef.cl
+  port: 8990
 
 development:
   <<: *default
