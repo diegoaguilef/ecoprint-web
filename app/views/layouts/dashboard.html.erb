@@ -56,15 +56,15 @@
                             <!-- Dark Logo icon -->
                             <%= image_pack_tag "media/stylesheets/admin/images/logo-icon.png", class: "dark-logo", alt: "homepage" %>
                             <!-- Light Logo icon -->
-                            <img src="../../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                            <%= image_pack_tag "media/stylesheets/admin/images/logo-light-icon.png", class: "light-logo", alt: "homepage" %>
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="../../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                            <%= image_pack_tag "media/stylesheets/admin/images/logo-text.png", class: "dark-logo", alt: "homepage" %>
                             <!-- Light Logo text -->
-                            <img src="../../assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
+                            <%= image_pack_tag "media/stylesheets/admin/images/logo-light-text.png", class: "light-logo", alt: "homepage" %>
                         </span>
                     </a>
                     <!-- ============================================================== -->
@@ -102,7 +102,7 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31">
+                                <%= image_pack_tag "media/stylesheets/admin/images/users/1.jpg", class: "rounded-circle", alt: "user", width: "31" %>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i>
@@ -136,8 +136,9 @@
                         <li>
                             <!-- User Profile-->
                             <div class="user-profile d-flex no-block dropdown m-t-20">
-                                <div class="user-pic"><img src="../../assets/images/users/1.jpg" alt="users"
-                                        class="rounded-circle" width="40" /></div>
+                                <div class="user-pic">
+                                <%= image_pack_tag "media/stylesheets/admin/images/users/1.jpg", class: "rounded-circle", alt: "users", width: "40" %>
+                                </div>
                                 <div class="user-content hide-menu m-l-10">
                                     <a href="#" class="" id="Userdd" role="button"
                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -171,9 +172,32 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
                                     class="hide-menu">Dashboard</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="pages-profile.html" aria-expanded="false"><i
-                                    class="mdi mdi-account-network"></i><span class="hide-menu">Profile</span></a></li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-account-network"></i>
+                                <span class="hide-menu">Mantenedores</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <%= link_to maintainers_index_path(entity_class: :category), class: "sidebar-link" do %>
+                                    <i class="ri-record-circle-line fs-5"></i>
+                                    <span class="hide-menu">Categorías</span>
+                                    <% end %>
+                                </li>
+                                <li class="sidebar-item">
+                                    <%= link_to maintainers_index_path(entity_class: :sub_category), class: "sidebar-link" do %>
+                                    <i class="ri-record-circle-line fs-5"></i>
+                                    <span class="hide-menu">Sub Categorías</span>
+                                    <% end %>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="docs-custom-datatables.html" class="sidebar-link"><i class="ri-record-circle-line fs-5"></i><span class="hide-menu"> Datatables</span></a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="docs-custom-datatables.html" class="sidebar-link"><i class="ri-record-circle-line fs-5"></i><span class="hide-menu"> Datatables</span></a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="table-basic.html" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
                                     class="hide-menu">Table</span></a></li>
@@ -186,10 +210,7 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="error-404.html" aria-expanded="false"><i class="mdi mdi-alert-outline"></i><span
                                     class="hide-menu">404</span></a></li>
-                        <li class="text-center p-40 upgrade-btn">
-                            <a href="https://www.wrappixel.com/templates/xtremeadmin/"
-                                class="btn d-block w-100 btn-danger text-white" target="_blank">Upgrade to Pro</a>
-                        </li>
+                        
                     </ul>
 
                 </nav>
@@ -220,12 +241,7 @@
                             </nav>
                         </div>
                     </div>
-                    <div class="col-7">
-                        <div class="text-end upgrade-btn">
-                            <a href="https://www.wrappixel.com/templates/xtremeadmin/" class="btn btn-danger text-white"
-                                target="_blank">Upgrade to Pro</a>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <!-- ============================================================== -->

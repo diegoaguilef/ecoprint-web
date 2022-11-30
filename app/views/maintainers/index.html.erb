@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Categorías</h1>
+<h1><%= @model.to_s.pluralize %></h1>
 
 <div id="categories">
   <table class="table">
@@ -16,7 +16,7 @@
     <% @entities.each do |entity| %>
     <tr>
       <% @entity_columns.each do |column| %>
-        <td><%= entity[column] %></td>
+        <td><%= column.to_s.include?("_id") ? association_name(entity, column, entity[column]) : entity[column] %></td>
       <% end %>
       <td>
       <%= link_to "Ver", maintainers_show_path(id: entity, entity_class: params[:entity_class]), class: "btn btn-primary" %>
@@ -29,4 +29,4 @@
   </table>
 </div>
 
-<%= link_to "New category", new_category_path %>
+<%= link_to "New #{params[:entity_class]}", maintainers_new_path(entity_class: params[:entity_class]) %>

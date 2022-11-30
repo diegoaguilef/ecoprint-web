@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'maintainers/index'
+  get 'maintainers/new'
+  get 'maintainers/edit'
+  get 'maintainers/show'
+  get 'maintainers/create'
+  get 'maintainers/update'
+  get 'maintainers/destroy'
   get 'administration/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   

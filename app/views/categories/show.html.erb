@@ -1,10 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @category %>
+<%= render @entity %>
 
 <div>
-  <%= link_to "Edit this category", edit_category_path(@category) %> |
-  <%= link_to "Back to categories", categories_path %>
-
-  <%= button_to "Destroy this category", @category, method: :delete %>
+  <%= link_to "Editar", maintainers_edit_path(id: @entity, entity_class: params[:entity_class]), class: "btn btn-warning" %> |
+  <%= link_to "Volver a Categorías", maintainers_index_path(entity_class: :category), class: "btn btn-primary" %>
+  <br />
+  <%= button_to "Eliminar", @entity, method: :delete, class: "btn btn-danger" %>
 </div>
