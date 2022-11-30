@@ -4,14 +4,14 @@
 
     <a href="index.html" class="logo d-flex align-items-center">
       <img src="assets/img/logo.png" alt="">
-      <span> !!!!imagen!!!! </span>
+      <%= image_pack_tag("media/img/ecoprint_logo.jpg") %>
     </a>
 
     <nav id="navbar" class="navbar">
       <ul>
         <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
         <li><a class="nav-link scrollto" href="#about">Informacion</a></li>
-        <li><a class="nav-link scrollto" href="#services">Productos</a></li>
+        <li><a class="nav-link scrollto" href="#services">Caracteristicas</a></li>
         <li><a class="nav-link scrollto" href="#team">Equipo</a></li>
         <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
         <li><%= link_to "Ver Tienda", market_products_path, class: "getstarted scrollto" %></li>
@@ -55,14 +55,11 @@
 
         <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
           <div class="content">
-            <h3>Who We Are</h3>
-            <h2>Expedita voluptas omnis cupiditate totam eveniet nobis sint iste. Dolores est repellat corrupti reprehenderit.</h2>
+            <h2>¿Cuáles son los inicios de Ecoprint Veronica?</h2>
             <p>
-              Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor consequatur itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam et est corrupti.
+            Parte en el año 2019 gracias a un taller de ecoprint verónica emprendió creando estampado en productos pequeños como accesorios para luego seguir con ropa reciclada de grandes tiendas (fast fashion) que se comercializan en principalmente en ferias del país.
             </p>
             <div class="text-center text-lg-start">
-              <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-                <span>Read More</span>
                 <i class="bi bi-arrow-right"></i>
               </a>
             </div>
@@ -78,7 +75,7 @@
 
   </section><!-- End Informacion -->
 
-  <!-- ======= Values Section ======= -->
+  <!-- ======= Procesos Section ======= -->
   <section id="values" class="values">
 
     <div class="container" data-aos="fade-up">
@@ -117,163 +114,94 @@
 
     </div>
 
-  </section><!-- End Values Section -->
+  </section><!-- End Procesos Section -->
 
-  <!-- ======= Services Section ======= -->
+  <!-- ======= Caracteristicas Section ======= -->
   <section id="services" class="services">
 
     <div class="container" data-aos="fade-up">
 
       <header class="section-header">
-        <h2>Tipos de productos</h2>
-        <p>Veritatis et dolores facere numquam et praesentium</p>
+        <h2>Caracteristicas</h2>
+        <p>Diferentes caracteristicas que hacen que ecoprint sea amigable con el medio ambiente</p>
       </header>
 
       <div class="row gy-4">
 
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="service-box blue">
+          <div class="service-box green"> 
             <i class="ri-discuss-line icon"></i>
-            <h3>Nesciunt Mete</h3>
-            <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
-            <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+            <h3>Reciclaje de ropa</h3>
+
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="service-box orange">
+          <div class="service-box green">
             <i class="ri-discuss-line icon"></i>
-            <h3>Eosle Commodi</h3>
-            <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-            <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+            <h3>Impresion que no contamina</h3>
+            
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
           <div class="service-box green">
             <i class="ri-discuss-line icon"></i>
-            <h3>Ledo Markt</h3>
-            <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-            <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-          <div class="service-box red">
-            <i class="ri-discuss-line icon"></i>
-            <h3>Asperiores Commodi</h3>
-            <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-            <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-          <div class="service-box purple">
-            <i class="ri-discuss-line icon"></i>
-            <h3>Velit Doloremque.</h3>
-            <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-            <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
-          <div class="service-box pink">
-            <i class="ri-discuss-line icon"></i>
-            <h3>Dolori Architecto</h3>
-            <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-            <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+            <h3>Uso de textiles nobles</h3>
+   
           </div>
         </div>
 
       </div>
-
     </div>
+  </section><!-- End Caracteristicas Section -->
 
-  </section><!-- End Services Section -->
   <!-- ======= Team Section ======= -->
   <section id="team" class="team">
 
     <div class="container" data-aos="fade-up">
 
       <header class="section-header">
-        <h2>Team</h2>
-        <p>Our hard working team</p>
+        <h2>Equipo</h2>
+        <p>Espacio circular</p>
+        <br />
+        <h2>Formamos parte de un grupo de varias pymes, todas enfocadas en temas sustentables, de reciclaje, recuperación, reutilización de prendas y Economía Circular. Es un Espacio de colaboración, creatividad y en donde podrás encontrar todo lo que estás buscando, en un sólo lugar. Aparte ofrecemos un espacio acogedor y de conversación, para que puedas pasar un momento agradable junto a todo el equipo.</h2>
       </header>
 
       <div class="row gy-4">
 
         <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
           <div class="member">
-            <div class="member-img">
-              <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
             <div class="member-info">
-              <h4>Walter White</h4>
-              <span>Chief Executive Officer</span>
-              <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.</p>
+              <h4>@ecoprintveronica</h4>
+              <p>Ropa reciclada e intervenida con proceso de ecoprint.</p>
             </div>
           </div>
         </div>
 
         <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
           <div class="member">
-            <div class="member-img">
-              <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
             <div class="member-info">
-              <h4>Sarah Jhonson</h4>
-              <span>Product Manager</span>
-              <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
+              <h4>@ekun.re</h4>
+              <p>venta e intercambio de ropa reciclada.</p>
             </div>
           </div>
         </div>
 
         <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
           <div class="member">
-            <div class="member-img">
-              <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
             <div class="member-info">
-              <h4>William Anderson</h4>
-              <span>CTO</span>
-              <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
+              <h4>@amuleto.mariateresayunis</h4>
+              <p> Venta de ropa, accesorios, y amuletos reciclados.</p>
             </div>
           </div>
         </div>
 
         <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
           <div class="member">
-            <div class="member-img">
-              <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
             <div class="member-info">
-              <h4>Amanda Jepson</h4>
-              <span>Accountant</span>
-              <p>Rerum voluptate non adipisci animi distinctio et deserunt amet voluptas. Quia aut aliquid doloremque ut possimus ipsum officia.</p>
+              <h4>@hilachasyharapos</h4>
+              <p>Venta de ropa urbana intervenida.</p>
             </div>
           </div>
         </div>
@@ -290,8 +218,7 @@
     <div class="container" data-aos="fade-up">
 
       <header class="section-header">
-        <h2>Contact</h2>
-        <p>Contact Us</p>
+        <p>Contacto</p>
       </header>
 
       <div class="row gy-4">
@@ -302,29 +229,29 @@
             <div class="col-md-6">
               <div class="info-box">
                 <i class="bi bi-geo-alt"></i>
-                <h3>Address</h3>
-                <p>A108 Adam Street,<br>New York, NY 535022</p>
+                <h3>Dirección</h3>
+                <p>Casa taller,<br>madreselvas, 4415 Macul</p>
               </div>
             </div>
             <div class="col-md-6">
               <div class="info-box">
                 <i class="bi bi-telephone"></i>
-                <h3>Call Us</h3>
-                <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                <h3>Telefono</h3>
+                <p>+56979183348</p>
               </div>
             </div>
             <div class="col-md-6">
               <div class="info-box">
                 <i class="bi bi-envelope"></i>
-                <h3>Email Us</h3>
-                <p>info@example.com<br>contact@example.com</p>
+                <h3>Email</h3>
+                <p>verolivero70@gmail.com</p>
               </div>
             </div>
             <div class="col-md-6">
               <div class="info-box">
                 <i class="bi bi-clock"></i>
-                <h3>Open Hours</h3>
-                <p>Monday - Friday<br>9:00AM - 05:00PM</p>
+                <h3>Horario</h3>
+                <p>Lunes - Viernes<br>9:00AM - 05:00PM</p>
               </div>
             </div>
           </div>
@@ -336,27 +263,27 @@
             <div class="row gy-4">
 
               <div class="col-md-6">
-                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                <input type="text" name="name" class="form-control" placeholder="Nombre" required>
               </div>
 
               <div class="col-md-6 ">
-                <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                <input type="email" class="form-control" name="email" placeholder="Correo Electronico" required>
               </div>
 
               <div class="col-md-12">
-                <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                <input type="text" class="form-control" name="subject" placeholder="Asunto" required>
               </div>
 
               <div class="col-md-12">
-                <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                <textarea class="form-control" name="message" rows="6" placeholder="Mensaje" required></textarea>
               </div>
 
               <div class="col-md-12 text-center">
-                <div class="loading">Loading</div>
+                <div class="loading">Cargando...</div>
                 <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                <div class="sent-message">tu mensaje ha sido enviado</div>
 
-                <button type="submit">Send Message</button>
+                <button type="submit">Enviar mensaje</button>
               </div>
 
             </div>
