@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get 'market/shopping_cart'
   get 'market/checkout'
   get 'market/post_sale'
+  get 'market/product_detail'
 
   # landingpage routes
   get 'index', to: "home#index" 

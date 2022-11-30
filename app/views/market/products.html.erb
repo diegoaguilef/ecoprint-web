@@ -8,7 +8,7 @@
       <div class="section__wrap section__wrap--category">
         <div class="section__content">
           <div class="section__body">
-            <h1 class="h2 section__title">Los resultados de tu busqueda</h1>
+            <h1 class="h2 section__title">Los resultados de tu búsqueda</h1>
             <p class="section__description">
             </p>
           </div>
@@ -30,7 +30,7 @@
                       <div class="article__img"> <%= image_tag(product.image) if product.image.attached? %></div>
                       <div class="article__body">
                         <h4 class="article__title"><%= product.name.upcase.capitalize %> </h4>
-                        <%= link_to 'Ver más<span class="fa fa-angle-right"></span>'.html_safe, product, class: "btn btn--sm" %>
+                        <%= link_to 'Ver más<span class="fa fa-angle-right"></span>'.html_safe, market_product_detail_path(id: product), class: "btn btn--sm" %>
                       </div>
                     </article>
                   </div>

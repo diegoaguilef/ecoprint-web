@@ -85,9 +85,15 @@
                     <li><%= link_to "Categorias", categories_path %></li>
                     <li><%= link_to "Contacto", contact_path %></li>
                     <% if current_user&.admin? %>
-                    <li><%= link_to "Administracion", current_user %></li>
+                    <li><%= link_to "Administracion", administration_index_path %></li>
                     <% end %>
-                    <li><%= link_to current_user.name, current_user %></li>
+                    <li>
+                    <%=
+                      link_to_if(current_user.nil?, "Iniciar Sesión", new_user_session_path) do
+                        link_to(current_user.name, current_user)
+                      end
+                    %>
+                    </li>
                   </ul>
                 </nav>
                 <div class="header__nav__buttons" style="visibility:hidden;"> <a href="/users/sign_in" class="btn btn--sm">Ir a mi cuenta</a><a href="register.html" class="btn btn--sm btn--secondary">Registrate</a></div>
