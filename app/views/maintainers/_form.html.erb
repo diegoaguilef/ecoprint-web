@@ -1,0 +1,29 @@
+<% entity_url = entity.new_record? ? maintainers_path(entity_class: params[:entity_class]) : maintainer_path(entity_class: params[:entity_class]) %>
+<%= form_with(model: entity, url: entity_url) do |form| %>
+  <% if entity.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(entity.errors.count, "error") %> prohibited this <%= @model %> from being saved:</h2>
+
+      <ul>
+        <% entity.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% @entity_columns.excluding(:id, :created_at, :updated_at).each do |column| %>
+
+  <div class="row col-3">
+    <%= form.label column, style: "display: block" %>
+    <% if column.to_s.include?("_id") %>
+      <%= form.collection_select column, association_collection(entity, column), :id, :name, {include_blank: "Seleccionar"}, class: "form-control" %>
+    <% else %>
+      <%= form.text_field column, class: "form-control" %>
+    <% end %>
+  </div>
+  <% end %>
+
+  <div class="row my-3">
+    <%= form.submit class: "btn btn-success" %>
+  </div>
+<% end %>

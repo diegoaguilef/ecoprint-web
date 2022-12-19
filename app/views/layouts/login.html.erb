@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>Renius</title>
+    <title>EcoPrint</title>
     <%= favicon_pack_tag 'media/img/icons/favicon.png', rel: 'shortcut icon' %>
     <meta charset="UTF-8">
     <%= csrf_meta_tags %>
@@ -81,12 +81,21 @@
                     <li><%= link_to "Contacto", "#" %></li>
                   </ul>
                 </nav>
-                <div class="header__nav__buttons"> <a href="/users/sign_in" class="btn btn--sm">Ir a mi cuenta</a><a href="register.html" class="btn btn--sm btn--secondary">Registrate</a></div>
+                <div class="header__nav__buttons">
+                  <%= link_to_if(current_user, "Ir a mi cuenta", current_user, class: "btn btn--sm") do 
+                      link_to("Regístrate", new_user_registration_path, class: "btn btn--sm btn--secondary")
+                    end
+                  %>
+                </div>
               </div>
             </div>
             <div class="header__right">
-              <div class="header__item header__item--button"> <a href="/users/sign_in" class="btn btn--sm">Ir a mi cuenta</a></div>
-              <div class="header__item header__item--button"> <a href="/users/sign_up" class="btn btn--sm btn--secondary">Registrate</a></div>
+              <div class="header__item header__item--button">
+              <%= link_to_if(current_user, "Ir a mi cuenta", current_user, class: "btn btn--sm") do 
+                      link_to("Regístrate", new_user_registration_path, class: "btn btn--sm btn--secondary")
+                    end
+                  %>
+              </div>
               <div class="header__item header__item--ham">
                 <div class="header__ham"><span></span><span></span><span></span></div>
               </div>

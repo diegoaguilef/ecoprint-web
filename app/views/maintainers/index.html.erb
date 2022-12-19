@@ -9,7 +9,7 @@
         <% @entity_columns.each do |column| %>
         <th><%= column %></th>
         <% end %>
-        <th colspan="3">Acciones</th>
+        <th colspan="2">Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -19,9 +19,8 @@
         <td><%= column.to_s.include?("_id") ? association_name(entity, column, entity[column]) : entity[column] %></td>
       <% end %>
       <td>
-      <%= link_to "Ver", maintainers_show_path(id: entity, entity_class: params[:entity_class]), class: "btn btn-primary" %>
-      <%= link_to "Editar", maintainers_edit_path(id: entity, entity_class: params[:entity_class]), class: "btn btn-warning" %>
-      <%= link_to "Eliminar", maintainers_destroy_path(id: entity, entity_class: params[:entity_class]), method: :delete, data: {confirm: "¿Está seguro(a) de eliminar?"}, class: "btn btn-danger" %>
+      <%= link_to "Editar", edit_maintainer_path(id: entity, entity_class: params[:entity_class]), class: "btn btn-warning" %>
+      <%= link_to "Eliminar", maintainer_path(entity, entity_class: params[:entity_class]), method: :delete, data: {confirm: "¿Está seguro(a) de eliminar?"}, class: "btn btn-danger" %>
       </td>
     </tr>
   <% end %>
@@ -29,4 +28,4 @@
   </table>
 </div>
 
-<%= link_to "New #{params[:entity_class]}", maintainers_new_path(entity_class: params[:entity_class]) %>
+<%= link_to "New #{params[:entity_class]}", new_maintainer_path(entity_class: params[:entity_class]) %>

@@ -1,6 +1,5 @@
 class MaintainersController < ApplicationController
   before_action :set_model
-  before_action :set_template
   before_action :set_entity, only: %i[edit show update destroy]
   before_action :set_entity_columns
 
@@ -18,30 +17,23 @@ class MaintainersController < ApplicationController
   end
 
   def new
+    @entity = @model.new
   end
 
   def show
-    render template: @template
   end
 
   def edit
-    render template: @template
   end
 
   # POST /maintainers?entity_class="class_name"
   def create
-    authorize! :maintainer, :create
+    #authorize! :maintainer, :create
     @entity = params[:massive] ? nil : @model.new(entity_params)
     respond_to do |format|
-      if @entity&.save
-        format.html { redirect_to @entity, notice: custom_notice_text }
+      if @entity.save
+        format.html { redirect_to maintainers_path(entity_class: params[:entity_class]), notice: "Creado" }
         format.json { render json: @entity, status: :created }
-      elsif params[:massive]
-        massive_transaction
-        @res = @errors || {message: "created"}
-        status = @errors.blank? ? :created : :unprocessable_entity
-        format.html { redirect_to @entity, notice: custom_notice_text }
-        format.json { render json: @res, status: status }
       else
         format.html { render :new }
         format.json { render json: @entity.errors.full_messages, status: :unprocessable_entity }
@@ -51,10 +43,10 @@ class MaintainersController < ApplicationController
 
   # PUT/PATCH /maintainers/1?entity_class="class_name"
   def update
-    authorize! :maintainer, :update
+    #authorize! :maintainer, :update
     respond_to do |format|
       if @entity.update(entity_params)
-        format.html { redirect_to @entity, notice: custom_notice_text }
+        format.html { redirect_to maintainers_path(entity_class: params[:entity_class]), notice: "Actualizado" }
         format.json { render json: @entity, status: :ok }
       else
         format.html { render :edit }
@@ -65,8 +57,8 @@ class MaintainersController < ApplicationController
 
   # DELETE /maintainers/1?entity_class="class_name"
   def destroy
-    authorize! :maintainer, :destroy
-    @entity.deactivate
+    #authorize! :maintainer, :destroy
+    @entity.destroy
     
     respond_to do |format|
       format.html { redirect_to maintainers_path(entity_class: params[:entity_class]), notice: "Mantenedor eliminado con éxito" }
@@ -98,7 +90,7 @@ class MaintainersController < ApplicationController
     end
 
     def entity_params
-      params.require(:entity).permit(
+      params.require(params[:entity_class]).permit(
         :name,
         :description,
         :category_id,

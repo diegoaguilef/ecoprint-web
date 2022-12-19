@@ -1,0 +1,46 @@
+<div class="sections">
+  <section class="section--header">
+    <div class="section__banner">
+      <div class="section__bg">
+        <div class="bg"></div>
+      </div>
+      <div class="section__grad"></div>
+      <div class="section__wrap section__wrap--category">
+        <div class="section__content">
+          <div class="section__body">
+            <h1 class="h2 section__title">Perfil</h1>
+            <p class="section__description">
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section--panel">
+    <div class="section__wrap">
+      <div class="section__body">
+        <div class="my-3 my-md-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="card form">
+                  <div class="card-header">
+                    <h3 class="card-title">Mi perfil</h3><%= link_to "Editar", edit_user_path(@user), class: 'btn btn-link' %>
+                  </div>
+                  <div class="card-body row">
+                    <div class="col-xs-12 col-sm-6">
+                      <div class="form__element">
+                        <label class="form-label form__title">Email</label><input class="form__input" value="<%= @user.email %>"/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <%= link_to 'Atrás', users_path, class: "btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

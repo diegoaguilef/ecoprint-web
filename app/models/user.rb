@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :delivery_addresses
+  accepts_nested_attributes_for :delivery_addresses
+
   def admin?
     role == "admin"
   end

@@ -7,6 +7,10 @@ class MarketController < ApplicationController
     @sub_categories = @selected_categories.map { |category| category.sub_categories}.flatten
   end
 
+  def categories
+    @categories = Category.all
+  end
+
   def product_detail
     id = params[:id]
     @product = Product.find(id)

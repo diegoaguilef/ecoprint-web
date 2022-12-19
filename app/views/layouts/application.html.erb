@@ -81,9 +81,8 @@
                 </div>
                 <nav>
                   <ul>
-                    <li><%= link_to 'Inicio', root_path %></li>
-                    <li><%= link_to "Categorias", categories_path %></li>
-                    <li><%= link_to "Contacto", contact_path %></li>
+                    <li><%= link_to 'Inicio', market_products_path %></li>
+                    <li><%= link_to "Categorías", market_categories_path %></li>
                     <% if current_user&.admin? %>
                     <li><%= link_to "Administracion", administration_index_path %></li>
                     <% end %>
@@ -94,14 +93,35 @@
                       end
                     %>
                     </li>
+                    <li>
+                    <%= link_to_if current_user, "Cerrar sesión", destroy_user_session_path, method: :delete, class: "btn btn--sm" do 
+                      link_to("Iniciar sesión", new_user_session_path, class: "btn btn--sm btn--secondary")
+                    end
+                    %>
+                    </li>
                   </ul>
                 </nav>
-                <div class="header__nav__buttons" style="visibility:hidden;"> <a href="/users/sign_in" class="btn btn--sm">Ir a mi cuenta</a><a href="register.html" class="btn btn--sm btn--secondary">Registrate</a></div>
+                <div class="header__nav__buttons" style="visibility:hidden;">
+                  <%= link_to_if current_user, "Ir a mi cuenta", current_user, class: "btn btn--sm" do 
+                      link_to("Regístrate", new_user_registration_path, class: "btn btn--sm btn--secondary")
+                    end
+                  %>
+                  <%= link_to_if current_user, "Cerrar sesión", new_user_session_path, class: "btn btn--sm" do 
+                      link_to("Iniciar sesión", destroy_user_session_path, method: :delete, class: "btn btn--sm btn--secondary")
+                    end
+                  %>
               </div>
             </div>
             <div class="header__right">
-              <div class="header__item header__item--button" style="visibility:hidden;"> <a href="/users/sign_in" class="btn btn--sm">Ir a mi cuenta</a></div>
-              <div class="header__item header__item--button" style="visibility:hidden;"> <a href="/users/sign_up" class="btn btn--sm btn--secondary">Registrate</a></div>
+              <div class="header__item header__item--button" style="visibility:hidden;">
+                <%= link_to_if current_user, "Cerrar sesión", new_user_session_path, class: "btn btn--sm" do 
+                      link_to("Iniciar sesión", destroy_user_session_path, method: :delete, class: "btn btn--sm btn--secondary")
+                    end
+                %>
+              </div>
+              <div class="header__item header__item--button" style="visibility:hidden;">
+                <a href="/users/sign_up" class="btn btn--sm btn--secondary">Registrate</a>
+              </div>
               <div class="header__item header__item--ham">
                 <div class="header__ham"><span></span><span></span><span></span></div>
               </div>
@@ -144,55 +164,16 @@
       </section>
     </div>
     <footer>
-      <div class="footer__primary">
-        <div class="footer__wrap">
-          <div class="cols">
-            <div class="col-md-4">
-              <div class="footer__logo"><%= image_tag "" %></div>
-              <p class="footer__description">¿Porque comprar algo costoso si lo puedes arrendar?</p>
-              <div class="footer__social">
-                <ul>
-                  <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                  <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                  <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="footer__nav">
-                <div class="cols">
-                  <div class="col-xs-6">
-                    <h4 class="footer__title">Productos</h4>
-                    <ul>
-                      <li><a href="#">Herramientas</a></li>
-                      <li><a href="#">Deportes</a></li>
-                      <li><a href="#">Tecnología</a></li>
-                      <li><a href="#">Linea Blanca</a></li>
-                      <li><a href="#">Otros</a></li>
-                    </ul>
-                  </div>
-                  <div class="col-xs-6">
-                    <h4 class="footer__title">Sitio web</h4>
-                    <ul>
-                      <li><%= link_to 'Inicio', root_path %></li>
-                      <li><%= link_to "Categorias", categories_path %></li>
-                      <li><%= link_to "Contacto", contact_path %></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4"></div>
-          </div>
+      <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Ecoprint</span></strong>. Todos los derechos reservados
         </div>
       </div>
-      <div class="footer__secondary">
-        <div class="footer__wrap footer__wrap--terms">
-          <div class="footer__terms">
-            <div class="footer__description">Copyright © 2022 - EcoPrint</div>
-          </div>
-        </div>
-      </div>
+    </footer><!-- End Footer -->
+  
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     </footer>
   </body>
 </html>

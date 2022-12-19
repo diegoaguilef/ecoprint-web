@@ -4,7 +4,7 @@
 
 <div>
   <%= link_to "Editar", maintainers_edit_path(id: @entity, entity_class: params[:entity_class]), class: "btn btn-warning" %> |
-  <%= link_to "Volver a Categorías", maintainers_index_path(entity_class: :category), class: "btn btn-primary" %>
+  <%= link_to "Volver a Categorías", maintainers_path(entity_class: :category), class: "btn btn-primary" %>
   <br />
   <%= button_to "Eliminar", @entity, method: :delete, class: "btn btn-danger" %>
 </div>

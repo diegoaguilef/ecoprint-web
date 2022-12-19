@@ -1,0 +1,58 @@
+<div id="sections">
+  <section class="section--header">
+    <div class="section__banner">
+      <div class="section__bg">
+        <div class="bg"></div>
+      </div>
+      <div class="section__grad"></div>
+      <div class="section__wrap section__wrap--category">
+        <div class="section__content">
+          <div class="section__body">
+            <h1 class="h2 section__title">Detalles del producto</h1>
+            <p class="section__description">
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section--panel">
+    <div class="section__wrap">
+      <div class="section__body">
+        <div class="cols">
+          <div class="col-md-9">
+            <div class="section__products">
+              <div class="cols">
+                <p style="color: green"><%= notice %></p>
+
+                    <div id="<%= dom_id @product %>">
+                    <p>
+                        <strong>Name:</strong>
+                        <%= @product.name %>
+                    </p>
+
+                    <p>
+                        <strong>Price:</strong>
+                        <%= @product.price %>
+                    </p>
+
+                    <p>
+                        <strong>Stock:</strong>
+                        <%= @product.stock %>
+                    </p>
+
+                    <p>
+                        <strong>Sub category:</strong>
+                        <%= @product.sub_category.name %>
+                    </p>
+
+                    </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

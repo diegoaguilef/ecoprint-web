@@ -1,20 +1,18 @@
 Rails.application.routes.draw do
-  get 'maintainers/index'
-  get 'maintainers/new'
-  get 'maintainers/edit'
-  get 'maintainers/show'
-  get 'maintainers/create'
-  get 'maintainers/update'
-  get 'maintainers/destroy'
+
+  resources :maintainers
+  
   get 'administration/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations',
-    passwords: 'users/passwords',
-    confirmations: 'users/confirmations'
-  }
+  scope "auth" do 
+    devise_for :users, controllers: {
+      sessions: 'users/sessions',
+      registrations: 'users/registrations',
+      passwords: 'users/passwords',
+      confirmations: 'users/confirmations'
+    }
+  end
 
   resources :users
 
@@ -33,6 +31,7 @@ Rails.application.routes.draw do
 
   #marketplace routes
   get 'market/products'
+  get 'market/categories'
   get 'market/shopping_cart'
   get 'market/checkout'
   get 'market/post_sale'

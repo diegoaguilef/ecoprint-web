@@ -1,2 +1,9 @@
-<h1>Maintainers#edit</h1>
-<p>Find me in app/views/maintainers/edit.html.erb</p>
+<h1>Editing <%= @model.to_s.pluralize %></h1>
+
+<%= render "form", entity: @entity, new_record: false%>
+
+<br>
+
+<div>
+  <%= link_to @model.to_s.pluralize, maintainers_path(entity_class: params[:entity_class]), class: "btn btn-primary" %>
+</div>

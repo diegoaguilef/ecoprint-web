@@ -1,2 +1,10 @@
-<h1>Maintainers#show</h1>
-<p>Find me in app/views/maintainers/show.html.erb</p>
+<p style="color: green"><%= notice %></p>
+
+<%= render @entity %>
+
+<div>
+  <%= link_to "Editar", maintainers_edit_path(id: @entity, entity_class: params[:entity_class]), class: "btn btn-warning" %> |
+  <%= link_to "Volver a Categorías", maintainers_path(entity_class: :category), class: "btn btn-primary" %>
+  <br />
+  <%= button_to "Eliminar", @entity, method: :delete, class: "btn btn-danger" %>
+</div>

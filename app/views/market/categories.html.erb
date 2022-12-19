@@ -1,0 +1,42 @@
+<section class="section--header">
+  <div class="section__banner">
+    <div class="section__bg">
+      <div class="bg"></div>
+    </div>
+    <div class="section__grad"></div>
+    <div class="section__wrap section__wrap--header">
+      <div class="section__content">
+        <div class="section__body">
+          <h1 class="h2 section__title">Conoce todos nuestros productos</h1>
+          <p class="section__description">Iaculis velit leo metus maecenas at aenean vivamus rutrum justo convallis
+            aenean.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section--categories">
+  <div class="section__wrap">
+    <div class="section__header"></div>
+    <div class="section__body">
+      <div class="cols">
+        <% @categories.each do |category| %>
+          <div class="col-xs-6 col-md-4">
+            <article class="article--category">
+              <div class="article__bg">
+                <div class="bg"><%=  category.name %></div>
+              </div>
+              <div class="article__content">
+                <h4 class="article__title"><%= category.name %></h4>
+                <p class="article__description">Descripción
+                </p>
+                <%= link_to 'ver mas', market_products_path(q: {sub_category_id_in: category.sub_categories.map(&:id)}), class: "btn btn--sm btn--secondary" %>
+              </div>
+            </article>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
