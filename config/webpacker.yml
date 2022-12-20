@@ -46,11 +46,6 @@ default: &default
     - .gif
     - .jpeg
     - .jpg
-    - .eot
-    - .otf
-    - .ttf
-    - .woff
-    - .woff2
 
 development:
   <<: *default

@@ -6,6 +6,8 @@ ruby "3.1.3"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
 
+gem 'dotenv-rails'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -83,3 +85,7 @@ gem "ruby-vips"
 gem "aws-sdk-s3", require: false
 
 gem 'pagy', '~> 5.10'
+
+gem "shakapacker", "= 6.5"
+
+gem "sassc-rails", "~> 2.1"
