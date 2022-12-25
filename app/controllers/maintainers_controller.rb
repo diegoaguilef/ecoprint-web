@@ -82,6 +82,7 @@ class MaintainersController < ApplicationController
 
     def set_entity_columns
       @entity_columns = @model.column_names.map(&:to_sym)
+      @entity_columns = [:id, :name, :email, :role, :created_at, :password, :password_confirmation] if @model.to_s == "User"
     end
 
     def set_template
@@ -96,6 +97,7 @@ class MaintainersController < ApplicationController
         :category_id,
         :sub_category_id,
         :region_id,
+        :image,
         :commune_id,
         :price,
         :stock,

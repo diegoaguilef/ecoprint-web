@@ -19,40 +19,72 @@
   <section class="section--panel">
     <div class="section__wrap">
       <div class="section__body">
-        <div class="cols">
-          <div class="col-md-9">
-            <div class="section__products">
-              <div class="cols">
-                <p style="color: green"><%= notice %></p>
-
-                    <div id="<%= dom_id @product %>">
-                    <p>
-                        <strong>Name:</strong>
-                        <%= @product.name %>
-                    </p>
-
-                    <p>
-                        <strong>Price:</strong>
-                        <%= @product.price %>
-                    </p>
-
-                    <p>
-                        <strong>Stock:</strong>
-                        <%= @product.stock %>
-                    </p>
-
-                    <p>
-                        <strong>Sub category:</strong>
-                        <%= @product.sub_category.name %>
-                    </p>
-
-                    </div>
-
+        <div class="container row">
+          <div class="col-6">
+            <%= image_tag(@product.image) if @product.image.attached?%>
+          </div>
+          <div class="col">
+            <div class="d-flex flex-column h-100">
+              <h2><%= @product.name %></h2>
+              <p class="fs-3">Descripción del producto:</p>
+              <hr />
+              <p class="fs-3"><%= @product.description %></p>
+              <div class="row align-self-end mt-auto">
+              <p class="fs-4">Precio: <%= @product.price %></p>
+              <p class="fs-4 <%= 'bg-danger' if @product.stock %>">Stock: <%= @product.stock %></p>
+              <hr />
+              <% if @shopping_cart.errors.any? %>
+              <p>
+                <%= @shopping_cart.errors.full_messages %>
+              </p>
+              <%end%>
+              <p class="fs-4">Cantidad:</p>
+              <div class="d-flex flex-row">
+                <button id="minus"><i class="fa fa-circle-minus"></i></button>
+                <label id="cart_quantity" class="px-2 fs-4">1</label>
+                <button id="plus"><i class="fa fa-circle-plus"></i></button>
+              </div>
+              <button value="1" id="add_to_cart" class="btn btn-success">Agregar al carrito de compras <i class="fa-solid fa-cart-plus"></i></button>
               </div>
             </div>
           </div>
-        </div>
+          </div>
       </div>
     </div>
   </section>
 </div>
+
+<script>
+$(function() {
+  const stock = <%= @product.stock %>
+  $("#minus").click(function() {
+    let quantity = $("#add_to_cart").val();
+    console.log(quantity);
+    if(quantity > 0){
+      quantity --;
+      $("#add_to_cart").val(quantity)
+      $("#cart_quantity").text(quantity);
+    }
+
+  })
+  $("#plus").click(function() {
+    let quantity = $("#add_to_cart").val();
+    console.log(quantity);
+    if(quantity >= 0 && quantity < stock){
+      quantity ++;
+      $("#add_to_cart").val(quantity)
+      $("#cart_quantity").text(quantity);
+    }
+
+  });
+  if(stock <= 0) $("#add_to_cart").attr("disabled", "disabled");
+
+  $("#add_to_cart").click(function() {
+    const quantity = $(this).val();
+    const product_id = <%= @product.id %>
+    $.get("/market/add_cart_product?quantity=" + quantity + "&product_id="+ product_id, function(data) {
+      window.location.href = "/market/shopping_cart?id=" + product_id
+    })
+  })
+})
+</script>

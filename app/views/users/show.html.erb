@@ -23,19 +23,14 @@
           <div class="container">
             <div class="row">
               <div class="col-12">
-                <div class="card form">
+                <div class="card">
                   <div class="card-header">
                     <h3 class="card-title">Mi perfil</h3><%= link_to "Editar", edit_user_path(@user), class: 'btn btn-link' %>
                   </div>
-                  <div class="card-body row">
-                    <div class="col-xs-12 col-sm-6">
-                      <div class="form__element">
-                        <label class="form-label form__title">Email</label><input class="form__input" value="<%= @user.email %>"/>
-                      </div>
-                    </div>
+                  <div class="card-body">
+                    <%= render 'form', editing: false, user: current_user%>
                   </div>
                 </div>
-                <%= link_to 'Atrás', users_path, class: "btn btn-primary" %>
               </div>
             </div>
           </div>

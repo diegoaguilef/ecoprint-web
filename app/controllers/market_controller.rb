@@ -14,9 +14,25 @@ class MarketController < ApplicationController
   def product_detail
     id = params[:id]
     @product = Product.find(id)
+    @shopping_cart = ShoppingCart.new
+
   end
 
   def shopping_cart
+    @cart_products = current_user.shopping_carts
+  end
+
+  def remove_cart_product
+    ShoppingCart.find(params[:id]).destroy
+    redirect_to market_shopping_cart_path
+  end
+
+  def add_cart_product
+    quantity = params[:quantity]
+    product_id = params[:product_id]
+    @shopping_cart = ShoppingCart.new(user: current_user, product_id: product_id, quantity: quantity)
+    @shopping_cart.save
+    redirect_to market_shopping_cart_path 
   end
 
   def checkout

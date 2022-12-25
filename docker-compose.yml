@@ -1,0 +1,24 @@
+version: '3'
+services:
+  db:
+    image: postgres:9.6
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DATABASE: ecoprint_web_development
+    volumes:
+      -  ~/volumes/ecoprint-db:/var/lib/postgresql/data
+  web:
+    image: 437505116872.dkr.ecr.us-east-1.amazonaws.com/ecoprint-web:administration
+    restart: always
+    environment:
+      - RAILS_MASTER_KEY=b9f0f0344f26db26eade200d1d34bed2
+      - RAILS_SERVE_STATIC_FILES="YES"
+      - RAILS_LOG_TO_STDOUT="YES"
+      - POSTGRES_HOST=db
+    command: sh init.sh
+    ports:
+      - "8958:3000"
+    depends_on:
+      - db

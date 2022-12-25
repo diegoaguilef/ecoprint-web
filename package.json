@@ -7,23 +7,23 @@
     "@popperjs/core": "^2.11.6",
     "@rails/activestorage": "^7.0.4",
     "@rails/ujs": "^7.0.4",
-    "@rails/webpacker": "5.4.0",
+    "@rails/webpacker": "5.4.3",
     "@srexi/purecounterjs": "^1.5.0",
     "aos": "^2.3.4",
-    "babel-loader": "^9.1.0",
     "bootstrap": "^5.2.2",
     "glightbox": "^3.2.0",
     "hammerjs": "^2.0.8",
     "isotope-layout": "^3.0.6",
     "jquery": "^3.6.1",
     "remixicon": "^2.5.0",
-    "swiper": "^8.4.5"
+    "swiper": "^8.4.5",
+    "webpack": "^4.46.0"
   },
   "devDependencies": {
-    "sass-loader": "10.1.1",
-    "webpack": "^4.46.0",
+    "@babel/preset-react": "^7.18.6",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

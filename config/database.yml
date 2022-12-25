@@ -23,7 +23,7 @@ default: &default
   host: localhost
   username: postgres
   password: postgres
-  host: localhost
+  host: <%= ENV['POSTGRES_HOST'] || localhost %>
   port: 5432
 
 development:

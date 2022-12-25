@@ -7,22 +7,56 @@ es:
       delivery_address:
         one: Dirección de despacho
         other: Direcciones de despacho
+      category:
+        one: Categoría
+        other: Categorías
       commune:
         one: Comuna
         other: Comunas
       product:
         one: Producto
         other: Productos
+      region:
+        one: Región
+        other: Regiones
+      sub_category:
+        one: Sub Categoría
+        other: Sub Categorías
+      subcategory:
+        one: Sub Categoría
+        other: Sub Categorías
     attributes:
+      category:
+        name: Nombre
+      city:
+        name: Nombre
+      commune:
+        name: Nombre
+        region: Ciudad
+        region_id: Ciudad
       delivery_address:
         name: Nombre
         street_name: Calle
         street_number: Número de calle
         postal_code: Cósigo postal
         commune_id: Comuna
+      product:
+        name: Nombre
+        description: Descripción
+        price: Precio
+        stock: Stock
+        sub_category: Sub categoría
+        sub_category_id: Sub categoría
+      region:
+        name: Nombre
+      sub_category:
+        name: Nombre
+        category: Categoría
+        category_id: Categoría
       user:
         name: Nombre
         email: Email
+        role: Rol
         password: Contraseña
         password_confirmation: Confirmar Contraseña
     errors:

@@ -81,7 +81,8 @@
                 </div>
                 <nav>
                   <ul>
-                    <li><%= link_to 'Inicio', market_products_path %></li>
+                    <li><%= link_to 'Inicio', index_path %></li>
+                    <li><%= link_to "Productos", market_products_path %></li>
                     <li><%= link_to "Categorías", market_categories_path %></li>
                     <% if current_user&.admin? %>
                     <li><%= link_to "Administracion", administration_index_path %></li>
@@ -89,13 +90,16 @@
                     <li>
                     <%=
                       link_to_if(current_user.nil?, "Iniciar Sesión", new_user_session_path) do
-                        link_to(current_user.name, current_user)
+                        link_to("Mi Perfil", current_user)
                       end
                     %>
                     </li>
                     <li>
+                    <a href="/market/shopping_cart" class="fs-6"><span class="badge bg-dark"><%= current_user&.shopping_carts&.size %></span><i class="fa fa-basket-shopping fs-3"></i></a>
+                    </li>
+                    <li>
                     <%= link_to_if current_user, "Cerrar sesión", destroy_user_session_path, method: :delete, class: "btn btn--sm" do 
-                      link_to("Iniciar sesión", new_user_session_path, class: "btn btn--sm btn--secondary")
+                      
                     end
                     %>
                     </li>

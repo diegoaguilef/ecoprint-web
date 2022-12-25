@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   get 'market/products'
   get 'market/categories'
   get 'market/shopping_cart'
+  delete 'market/remove_cart_product', to: "market#remove_cart_product"
+  get 'market/add_cart_product'
   get 'market/checkout'
   get 'market/post_sale'
   get 'market/product_detail'

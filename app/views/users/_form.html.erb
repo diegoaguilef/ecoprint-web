@@ -1,64 +1,87 @@
 <div class="row">
-  <div class="col-2">
-  <h4>Información personal</h4>
-  </div>
-</div>
-<div class="row">
-  <div class="col-4">
+  <div class="col-6">
+  <% html_options = {}
+    html_options[:class] = 'form__input'
+    html_options[:readonly] = 'readonly' if !editing
+  %>
   <%= form_with model: user, class: 'form' do |f| %>
+    <% if user.errors%>
+    <ul>
+      <% user.errors.full_messages.each do |message|%>
+      <span class="badge bg-danger fs-5">
+      <%= message %>
+      </span>
+      <% end %>
+    </ul>
+    <% end %>
+    <div class="row">
+      <div class="col">
+      <h4>Información personal</h4>
+      </div>
+    </div>
     <div class="form__element">
       <%= f.label :name, class: 'form__title' %>
-      <%= f.text_field :name, class: 'form__input' %>
+      <%= f.text_field :name, html_options %>
     </div>
     <div class="form__element">
       <%= f.label :email, class: 'form__title' %>
-      <%= f.text_field :email, class: 'form__input' %>
+      <%= f.text_field :email, html_options %>
     </div>
     <% if user.admin?%>
     <div class="form__element">
       <%= f.label :role, class: 'form__title' %>
-      <%= f.text_field :role, class: 'form__input' %>
+      <%= f.text_field :role, html_options %>
     </div>
     <% end%>
+    <% if editing %>
     <div class="form__element">
       <%= f.label :password, class: 'form__title' %>
-      <%= f.password_field :password, class: 'form__input' %>
+      <%= f.password_field :password, html_options %>
     </div>
-    <div class="form__element">
+    <div class="form__element ">
       <%= f.label :password_confirmation, class: 'form__title' %>
-      <%= f.password_field :password_confirmation, class: 'form__input' %>
+      <%= f.password_field :password_confirmation, html_options %>
     </div>
+    <% end %>
+    <br />
     <div class="row">
-      <div class="col-2">
+      <div class="col">
         <h4>Direcciones de despacho</h4>
       </div>
     </div>
     <%= f.fields_for :delivery_addresses do |address| %>
+        <h4> Dirección <%= address.index + 1%> : </h4>
         <div class="form__element">
           <%= address.label :name, class: 'form__title' %>
-          <%= address.text_field :name, class: 'form__input' %>
+          <%= address.text_field :name, html_options %>
         </div>
         <div class="form__element">
           <%= address.label :street_name, class: 'form__title' %>
-          <%= address.text_field :street_name, class: 'form__input' %>
+          <%= address.text_field :street_name, html_options %>
         </div>
         <div class="form__element">
           <%= address.label :street_number, class: 'form__title' %>
-          <%= address.text_field :street_number, class: 'form__input' %>
+          <%= address.text_field :street_number, html_options %>
         </div>
         <div class="form__element">
-          <%= address.label :commune, class: 'form__title' %>
-          <%= address.collection_select :commune, Commune.all, :id, :name, {include_blank: 'Seleccionar'}, class: 'form__input' %>
+          <%= address.label :commune_id, class: 'form__title' %>
+          <% if editing %>
+          <%= address.collection_select :commune_id, Commune.all, :id, :name, {include_blank: 'Seleccionar'}, html_options %>
+          <% else %>
+          <%= address.text_field :commune_id, html_options.merge(value: address.object&.commune&.name) %>
+          <% end %>
         </div>
         <div class="form__element">
           <%= address.label :postal_code, class: 'form__title' %>
-          <%= address.text_field :postal_code, class: 'form__input' %>
+          <%= address.text_field :postal_code, html_options %>
         </div>
     <% end %>
     </div>
+    <% if editing %>
     <div class="form__element">
       <%= f.submit class: 'btn form__input' %>
     </div>
+    <% end %>
   <% end %>
   </div>
 </div>

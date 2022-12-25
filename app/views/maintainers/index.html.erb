@@ -1,12 +1,11 @@
 <p style="color: green"><%= notice %></p>
-
-<h1><%= @model.to_s.pluralize %></h1>
+<h1><%= t "activerecord.models.#{@model.to_s.downcase}.other" %></h1>
 
 <div id="categories">
   <table class="table">
     <thead>
       <tr>
-        <% @entity_columns.each do |column| %>
+        <% @entity_columns.without(:password, :password_confirmation).each do |column| %>
         <th><%= column %></th>
         <% end %>
         <th colspan="2">Acciones</th>
@@ -15,7 +14,7 @@
     <tbody>
     <% @entities.each do |entity| %>
     <tr>
-      <% @entity_columns.each do |column| %>
+      <% @entity_columns.without(:password, :password_confirmation).each do |column| %>
         <td><%= column.to_s.include?("_id") ? association_name(entity, column, entity[column]) : entity[column] %></td>
       <% end %>
       <td>
@@ -28,4 +27,4 @@
   </table>
 </div>
 
-<%= link_to "New #{params[:entity_class]}", new_maintainer_path(entity_class: params[:entity_class]) %>
+<%= link_to "Nuevo #{params[:entity_class]}", new_maintainer_path(entity_class: params[:entity_class]) %>

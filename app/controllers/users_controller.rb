@@ -87,12 +87,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def redirect_user
-    return root_path if current_user.generalist? || current_user.master_data?
-    users_url
-  end
-  
-
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
     params.require(:user)
